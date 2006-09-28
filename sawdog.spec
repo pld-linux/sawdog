@@ -39,7 +39,7 @@ install -d $RPM_BUILD_ROOT/home/services/httpd/html/sawdog
 install sawdog.pl $RPM_BUILD_ROOT%{_bindir}
 for i in `ls -1 services/`; do install services/$i $RPM_BUILD_ROOT%{_bindir}/sawdog.$i ; done
 install sawdog.conf $RPM_BUILD_ROOT%{_sysconfdir}/sawdog
-cp -r www $RPM_BUILD_ROOT/home/services/httpd/html/sawdog
+cp -r www/* $RPM_BUILD_ROOT/home/services/httpd/html/sawdog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -51,4 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 %%dir %{_sysconfdir}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/sawdog/sawdog.conf
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) /home/services/httpd/html/*
+%attr(755,root,root) /home/services/httpd/html/sawdog/*
+%attr(644,root,root) /home/services/httpd/html/sawdog/config.php
