@@ -10,6 +10,7 @@ Source1:	%{name}.conf
 Source2:	%{name}-lighttpd.conf
 URL:		http://open.digicomp.ch/gpl/sawdog/
 Requires:	expect
+Requires:	perl-base
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
