@@ -1,5 +1,5 @@
-Summary:	sawdog
-Name:		sawdog
+Summary:	sawdog - suite of server monitoring scripts
+Name:		sawdog - zestaw skryptów monitoruj±cych serwery
 Version:	2.4
 Release:	0.2
 License:	GPL v2
@@ -24,12 +24,31 @@ Sawdog (Simple Active Watch-DOG) is a suite of scripts that informs
 the system operators of mission critical servers in the case of a
 failure. A set of small executables (i.e. expect scripts) are
 executed, and if one executable fails, it sends an email or an SMS to
-the sysop. There are 3 states known to sawdog: alive, unknown, and
-dead. Only certain state transitions trigger a notification. On a Web
-interface, the states of all hosts are visible. So far, there are
-scripts to check for DNS, FTP, HTTP, HTTPS, ICMP, IMAP, MS SQL, MySQL,
-Notes, NTP, POP3, PostgreSQL, SMB, SMTP, SNMP, SSH, telnet, TWS, VNM,
-and Webmin.
+the sysop.
+
+There are 3 states known to sawdog: alive, unknown, and dead. Only
+certain state transitions trigger a notification. On a Web interface,
+the states of all hosts are visible.
+
+So far, there are scripts to check for DNS, FTP, HTTP, HTTPS, ICMP,
+IMAP, MS SQL, MySQL, Notes, NTP, POP3, PostgreSQL, SMB, SMTP, SNMP,
+SSH, telnet, TWS, VNM, and Webmin.
+
+%description -l pl
+Sawdog (prosty aktywny watchdog) to zestaw skryptów informuj±cych
+operatorów systemów o usterce serwerów krytycznych dla dzia³ania
+projektu. Je¿eli jeden z zestawu ma³ych plików wykonywalnych (n.p.
+skryptów expect) zwróci b³±d, wysy³any jest email lub SMS to
+operatora.
+
+Sawdog okre¶la stan maszyny na trzy sposoby: sprawny, nieznany,
+niesprawny. Powiadomienie jest wysy³ane tylko przy z góry okre¶lonym
+przej¶ciu z jednego stanu do drugiego. Za pomoc± interfejsu www
+mo¿liwy jest podgl±d stanów wszystkich dostêpnych maszyn.
+
+Na chwilê obecn± sawdog posiada skrypt do sprawdzania us³ug DNS, FTP.
+HTTP, HTTPS, ICMP, IMAP, MS SQL, MySQL, NTP, POP3, PostgreSQL, SMB,
+SMTP, SNMP, SSH, telnet, TWS, VNM oraz webmin.
 
 %prep
 %setup -q
@@ -38,7 +57,6 @@ and Webmin.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-# create directories if necessary
 install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT/var/sawdog
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/sawdog
@@ -77,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 
-%%dir %{_sysconfdir}
+%dir %{_sysconfdir}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/sawdog.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
