@@ -109,6 +109,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{sawdogdir}/*
 %{sawdogdir}/config.php
 
+# FIXME: FHS
 %dir /var/sawdog
-%dir /var/log
 %ghost %attr(770,root,http) /var/log/sawdog.log
