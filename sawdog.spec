@@ -46,7 +46,7 @@ install -d $RPM_BUILD_ROOT%{sawdogdir}
 
 install sawdog.pl $RPM_BUILD_ROOT%{_bindir}
 for i in `ls -1 services/`; do install services/$i $RPM_BUILD_ROOT%{_bindir}/sawdog.$i ; done
-install sawdog.conf $RPM_BUILD_ROOT%{_sysconfdir}/sawdog
+install sawdog.conf $RPM_BUILD_ROOT%{_sysconfdir}
 cp -r www/* $RPM_BUILD_ROOT%{sawdogdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
@@ -78,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README
 
 %%dir %{_sysconfdir}
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/sawdog/sawdog.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/sawdog.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lighttpd.conf
