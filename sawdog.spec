@@ -2,7 +2,7 @@ Summary:	sawdog - suite of server monitoring scripts
 Summary(pl):	sawdog - zestaw skryptów monitoruj±cych serwery
 Name:		sawdog
 Version:	2.4
-Release:	0.2
+Release:	0.3
 License:	GPL v2
 Group:		Applications
 Source0:	http://open.digicomp.ch/gpl/sawdog/download/%{name}-%{version}.tar.gz
@@ -61,6 +61,7 @@ SMTP, SNMP, SSH, telnet, TWS, VNM oraz webmin.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT/var/sawdog
+install -d $RPM_BUILD_ROOT/var/log
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/sawdog
 install -d $RPM_BUILD_ROOT%{sawdogdir}
 
@@ -71,6 +72,7 @@ cp -r www/* $RPM_BUILD_ROOT%{sawdogdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
+> $RPM_BUILD_ROOT/var/log/sawdog.log
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -105,3 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{sawdogdir}/*
 %{sawdogdir}/config.php
+
+%dir /var/sawdog
+%dir /var/log
+%ghost %attr(770,root,http) /var/log/sawdog.log
