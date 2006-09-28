@@ -1,5 +1,6 @@
 Summary:	sawdog - suite of server monitoring scripts
-Name:		sawdog - zestaw skryptów monitoruj±cych serwery
+Summary(pl):	sawdog - zestaw skryptów monitoruj±cych serwery
+Name:		sawdog
 Version:	2.4
 Release:	0.2
 License:	GPL v2
