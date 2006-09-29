@@ -1,0 +1,59 @@
+diff -ur sawdog-2.4/sawdog.pl sawdog-2.4.new/sawdog.pl
+--- sawdog-2.4/sawdog.pl	2006-09-22 09:56:56.000000000 +0200
++++ sawdog-2.4.new/sawdog.pl	2006-09-29 10:44:40.794454000 +0200
+@@ -19,13 +19,16 @@
+ 
+ $version       = '2.4.00 multiple recipients - chgloor 14.09.06';
+ 
+-$varpath       = '/var/sawdog';
++$varpath       = '/var/lib/sawdog';
+ $confpath      = '/etc/sawdog';
+ $configfile    = "$confpath/sawdog.conf";
+ $statusfile    = "$varpath/sawdog.status";
+ $lockfile      = "$varpath/sawdog.lock";
+ $logfile       = "/var/log/sawdog.log";
+-$servicedir    = './services/';
++$servicedir    = '/usr/bin/';
++#serviceprefix added by Jakub 'jezik' Kolasa, PaSzCzUs request ;-) PLD AC dist request
++$serviceprefix = 'sawdog.';
++
+ 
+ # don't change anything below this line, unless you really know what you do, this is the end of the config section
+ # ----------------------------------------------------------------------------------------------------------------
+@@ -98,7 +101,7 @@
+ 	$temp = $port[$i];
+ 	if ($temp) {
+             print "$temp " if $verbose;
+-	    if (system("$servicedir$temp $server  &> /dev/null") == 0) {
++           if (system("$servicedir$serviceprefix$temp $server  &> /dev/null") == 0) {
+ 		$unknown = 1;
+ 		foreach (@status) {
+ 		    if (/$server\s$temp\sdead/) {
+diff -ur sawdog-2.4/www/config.php sawdog-2.4.new/www/config.php
+--- sawdog-2.4/www/config.php	2006-09-22 10:10:53.000000000 +0200
++++ sawdog-2.4.new/www/config.php	2006-09-29 10:44:16.434454000 +0200
+@@ -1,12 +1,12 @@
+-<?php
+-
+-$cfg['sawdog_title'] = 'Sawdog';
+-$cfg['sawdog_version'] = '2.4';
+-$cfg['sawdog_homepage'] = 'http://open.digicomp.ch/gpl/sawdog/';
+-$cfg['sawdog_status_path'] = '/var/sawdog/sawdog.status';
+-$cfg['sawdog_status_maxage'] = 900;
+-$cfg['sawdog_log_path'] = '/var/log/sawdog.log';
+-$cfg['sawdog_reload'] = 10;
+-$cfg['sawdog_maxtimeouts'] = 3;
+-
+-?>
++<?php
++
++$cfg['sawdog_title'] = 'Sawdog';
++$cfg['sawdog_version'] = '2.4';
++$cfg['sawdog_homepage'] = 'http://open.digicomp.ch/gpl/sawdog/';
++$cfg['sawdog_status_path'] = '/var/lib/sawdog/sawdog.status';
++$cfg['sawdog_status_maxage'] = 900;
++$cfg['sawdog_log_path'] = '/var/log/sawdog.log';
++$cfg['sawdog_reload'] = 10;
++$cfg['sawdog_maxtimeouts'] = 3;
++
++?>
