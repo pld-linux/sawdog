@@ -13,6 +13,7 @@ Patch0:		%{name}-path.patch
 URL:		http://open.digicomp.ch/gpl/sawdog/
 Requires:	expect
 Requires:	perl-base
+Requires:	webapps
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
