@@ -1,5 +1,5 @@
 Summary:	sawdog - suite of server monitoring scripts
-Summary(pl.UTF-8):   sawdog - zestaw skryptów monitorujących serwery
+Summary(pl.UTF-8):	sawdog - zestaw skryptów monitorujących serwery
 Name:		sawdog
 Version:	2.4
 Release:	0.4
