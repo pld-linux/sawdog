@@ -1,5 +1,5 @@
 Summary:	sawdog - suite of server monitoring scripts
-Summary(pl):	sawdog - zestaw skryptów monitoruj±cych serwery
+Summary(pl.UTF-8):   sawdog - zestaw skryptÃ³w monitorujÄ…cych serwery
 Name:		sawdog
 Version:	2.4
 Release:	0.4
@@ -38,19 +38,19 @@ So far, there are scripts to check for DNS, FTP, HTTP, HTTPS, ICMP,
 IMAP, MS SQL, MySQL, Notes, NTP, POP3, PostgreSQL, SMB, SMTP, SNMP,
 SSH, telnet, TWS, VNM, and Webmin.
 
-%description -l pl
-Sawdog (prosty aktywny watchdog) to zestaw skryptów informuj±cych
-operatorów systemów o usterce serwerów krytycznych dla dzia³ania
-projektu. Je¿eli jeden z zestawu ma³ych plików wykonywalnych (n.p.
-skryptów expect) zwróci b³±d, wysy³any jest email lub SMS to
+%description -l pl.UTF-8
+Sawdog (prosty aktywny watchdog) to zestaw skryptÃ³w informujÄ…cych
+operatorÃ³w systemÃ³w o usterce serwerÃ³w krytycznych dla dziaÅ‚ania
+projektu. JeÅ¼eli jeden z zestawu maÅ‚ych plikÃ³w wykonywalnych (n.p.
+skryptÃ³w expect) zwrÃ³ci bÅ‚Ä…d, wysyÅ‚any jest email lub SMS to
 operatora.
 
-Sawdog okre¶la stan maszyny na trzy sposoby: sprawny, nieznany,
-niesprawny. Powiadomienie jest wysy³ane tylko przy z góry okre¶lonym
-przej¶ciu z jednego stanu do drugiego. Za pomoc± interfejsu www
-mo¿liwy jest podgl±d stanów wszystkich dostêpnych maszyn.
+Sawdog okreÅ›la stan maszyny na trzy sposoby: sprawny, nieznany,
+niesprawny. Powiadomienie jest wysyÅ‚ane tylko przy z gÃ³ry okreÅ›lonym
+przejÅ›ciu z jednego stanu do drugiego. Za pomocÄ… interfejsu www
+moÅ¼liwy jest podglÄ…d stanÃ³w wszystkich dostÄ™pnych maszyn.
 
-Na chwilê obecn± sawdog posiada skrypt do sprawdzania us³ug DNS, FTP.
+Na chwilÄ™ obecnÄ… sawdog posiada skrypt do sprawdzania usÅ‚ug DNS, FTP.
 HTTP, HTTPS, ICMP, IMAP, MS SQL, MySQL, NTP, POP3, PostgreSQL, SMB,
 SMTP, SNMP, SSH, telnet, TWS, VNM oraz webmin.
 
