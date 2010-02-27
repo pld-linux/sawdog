@@ -113,4 +113,4 @@ rm -rf $RPM_BUILD_ROOT
 %{sawdogdir}/config.php
 
 %dir /var/lib/sawdog
-%ghost %attr(770,root,http) /var/log/sawdog.log
+%attr(770,root,http) %ghost /var/log/sawdog.log
